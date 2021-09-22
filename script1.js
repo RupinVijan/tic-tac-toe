@@ -16,6 +16,9 @@ e0.addEventListener("click",()=>{
     gameboard[0]=switchplayer();
     showboard(gameboard);
     checkwinner(gameboard);
+    setTimeout(() => {
+        botplayer(gameboard)
+    }, 2000);
 }
 });
 e1.addEventListener("click",()=>{
@@ -23,14 +26,19 @@ e1.addEventListener("click",()=>{
         gameboard[1]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e2.addEventListener("click",()=>{
     if (gameboard[2]===""){
-        
         gameboard[2]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e3.addEventListener("click",()=>{
@@ -39,22 +47,29 @@ e3.addEventListener("click",()=>{
         gameboard[3]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e4.addEventListener("click",()=>{
     if (gameboard[4]===""){
-        
         gameboard[4]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e5.addEventListener("click",()=>{
     if (gameboard[5]===""){
-        
         gameboard[5]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e6.addEventListener("click",()=>{
@@ -62,7 +77,9 @@ e6.addEventListener("click",()=>{
         gameboard[6]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
-        
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e7.addEventListener("click",()=>{
@@ -70,7 +87,9 @@ e7.addEventListener("click",()=>{
         gameboard[7]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
-        
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 e8.addEventListener("click",()=>{
@@ -78,7 +97,9 @@ e8.addEventListener("click",()=>{
         gameboard[8]=switchplayer();
         showboard(gameboard);
         checkwinner(gameboard);
-
+        setTimeout(() => {
+            botplayer(gameboard)
+        }, 2000);
     }
 });
 
@@ -98,20 +119,30 @@ function showboard(gameboard){
 
 function switchplayer(){
     count++;
-    if (count>=9){
+    if (count>=5){
         gamereset();
         document.getElementById("win").innerText=gameboard[2]+" Game Draw";
     }
-    if (count%2==0){
-        document.getElementById("player").innerText="Player : "+"X";
-        return "0";
-    }
+    
     else{
         document.getElementById("player").innerText="Player : "+"0";
         return "X";
     }
 
 
+}
+
+function botplayer(gameboard){
+    const ran=Math.floor(Math.random() * 8);
+    if(gameboard[ran]==""){
+        document.getElementById("player").innerText="Player : "+"X";
+        gameboard[ran]="0";
+        showboard(gameboard);
+        checkwinner(gameboard);
+    }
+    else{
+        botplayer(gameboard);
+    }
 }
 
 function checkwinner(gameboard){
@@ -121,6 +152,7 @@ function checkwinner(gameboard){
             setTimeout(() => {
                 gamereset();
             }, 2000);
+            
 
         }
     }

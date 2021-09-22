@@ -29,3 +29,11 @@ body{
     width: 100px;
     border:1px solid white;
 }
+#Single-player{
+    outline: none;
+    border: none;
+    font-size: 2rem;
+    text-decoration: underline;
+    background-color: transparent;
+    color: white;
+}
